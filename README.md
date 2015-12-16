@@ -30,7 +30,7 @@ You can clone `mirage-skeleton` and compiles one of the example to see
 if everything is working properly:
 
 ```
-# git clone -b functoria https://github.com/Drup/mirage-skeleton.git
+# git clone -b mirage-dev https://github.com/mirage/mirage-skeleton.git
 # cd mirage-skeleton/hello
 # mirage configure
 # make
