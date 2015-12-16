@@ -34,7 +34,14 @@ Use the `xl` command line to start the unikernel:
 sudo xl create exo-3.xl
 ```
 
-If you have OSX, use that vagrant image or read that blog post: TODO
+If you have OSX, use can try with that vagrant image:
+
+```
+https://github.com/mthurman/mirage-vagrant
+```
+
+or read Magnus' [blog post](http://www.skjegstad.com/blog/2015/01/19/mirageos-xen-virtualbox/)
+
 
 ### Taks 3.4 Multiple HTTP ports
 
