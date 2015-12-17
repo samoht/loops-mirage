@@ -79,12 +79,18 @@ module Main (C: CONSOLE) (S: STACKV4) = struct
   (* the proxy function *)
   let proxy c con host =
     log c "Found port combination for host %s!" host >>= fun () ->
-    let buf =
+    let str =
       Printf.sprintf
         "<html><body style=\"background-color:green\">\
          <center style=\"color:white\">found: %s!</center>\
          </body></html>"
         host
+    in
+    let len = String.length str in
+    let buf =
+      Printf.sprintf
+        "HTTP/1.1 200 OK\nContent-length: %d\nContent-type: text/html\n\n%s"
+        len str
     in
     let buf = Cstruct.of_string buf in
     S.TCPV4.write con buf >>=
@@ -95,10 +101,16 @@ module Main (C: CONSOLE) (S: STACKV4) = struct
 
   let not_found c con =
     log c "No port combination found!" >>= fun () ->
-    let buf =
+    let str =
       "<html><body style=\"background-color:blue\">\
        <center style=\"color:white\">Hello Loops!</center>\
        </body></html>"
+    in
+    let len = String.length str in
+    let buf =
+      Printf.sprintf
+        "HTTP/1.1 200 OK\nContent-length: %d\nContent-type: text/html\n\n%s"
+        len str
     in
     let buf = Cstruct.of_string buf in
     S.TCPV4.write con buf >>=
