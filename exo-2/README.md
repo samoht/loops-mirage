@@ -2,15 +2,15 @@
 
 This is now time to compile and run your first unikernel!
 
-In the `exo-2` directory, you should have 2 files:
+Two interesting files:
 
-- `config.ml` contains the unikernel configuration. It is used by
+- [config.ml](./config.ml) contains the unikernel configuration. It is used by
   `mirage configure` to properly configure the application backends:
    does it needs a network and/or storage stack, does it run on
    Unix or on Xen, etc...
 
-- `unikernel.ml` contains the code of the application. The "business
-  logic" goes there. The present application have an hard-coded proxy
+- [unikernel.ml](./unikernel.ml) contains the code of the application.
+  The "business logics" go there. The present application have an hard-coded proxy
   function, see `Hostname.decode`
 
 To configure and build the unikernel:
